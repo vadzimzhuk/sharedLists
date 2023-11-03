@@ -19,12 +19,23 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct SharedListsApp: App {
-    
+
+    let store = AppStateStore(
+      initial: AppState(),
+      reducer: appStateReducer,
+      middlewares: [
+      ])
+
+    init() {
+      store.dispatch(.launch)
+    }
+
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(store)
         }
     }
 }

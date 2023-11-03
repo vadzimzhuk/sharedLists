@@ -20,6 +20,11 @@
 		0D555A982AF53ACA003BE15F /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0D555A972AF53ACA003BE15F /* FirebaseAnalyticsSwift */; };
 		0D555A9A2AF53ACA003BE15F /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 0D555A992AF53ACA003BE15F /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		0D555A9C2AF53ACA003BE15F /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 0D555A9B2AF53ACA003BE15F /* FirebaseAppCheck */; };
+		0D555A9F2AF53D96003BE15F /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D555A9E2AF53D96003BE15F /* Store.swift */; };
+		0D555AA12AF53DE8003BE15F /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D555AA02AF53DE8003BE15F /* State.swift */; };
+		0D555AA32AF53EA7003BE15F /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D555AA22AF53EA7003BE15F /* AppAction.swift */; };
+		0D555AA52AF53F52003BE15F /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D555AA42AF53F52003BE15F /* Reducer.swift */; };
+		0D555AA72AF53FAB003BE15F /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D555AA62AF53FAB003BE15F /* Middleware.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,11 @@
 		0D555A8C2AF53796003BE15F /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		0D555A8E2AF537AB003BE15F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		0D555A902AF53A55003BE15F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0D555A9E2AF53D96003BE15F /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		0D555AA02AF53DE8003BE15F /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		0D555AA22AF53EA7003BE15F /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
+		0D555AA42AF53F52003BE15F /* Reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
+		0D555AA62AF53FAB003BE15F /* Middleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middleware.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +79,7 @@
 		0D555A7A2AF5336F003BE15F /* SharedLists */ = {
 			isa = PBXGroup;
 			children = (
+				0D555A9D2AF53D86003BE15F /* State */,
 				0D555A902AF53A55003BE15F /* GoogleService-Info.plist */,
 				0D555A892AF5376D003BE15F /* Services */,
 				0D555A7B2AF5336F003BE15F /* SharedListsApp.swift */,
@@ -95,6 +106,18 @@
 				0D555A8E2AF537AB003BE15F /* NetworkService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		0D555A9D2AF53D86003BE15F /* State */ = {
+			isa = PBXGroup;
+			children = (
+				0D555A9E2AF53D96003BE15F /* Store.swift */,
+				0D555AA02AF53DE8003BE15F /* State.swift */,
+				0D555AA62AF53FAB003BE15F /* Middleware.swift */,
+				0D555AA42AF53F52003BE15F /* Reducer.swift */,
+				0D555AA22AF53EA7003BE15F /* AppAction.swift */,
+			);
+			path = State;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,9 +202,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D555A8F2AF537AB003BE15F /* NetworkService.swift in Sources */,
+				0D555AA32AF53EA7003BE15F /* AppAction.swift in Sources */,
 				0D555A8B2AF5378A003BE15F /* AuthorizationService.swift in Sources */,
 				0D555A8D2AF53796003BE15F /* StorageService.swift in Sources */,
+				0D555A9F2AF53D96003BE15F /* Store.swift in Sources */,
+				0D555AA72AF53FAB003BE15F /* Middleware.swift in Sources */,
+				0D555AA52AF53F52003BE15F /* Reducer.swift in Sources */,
 				0D555A7E2AF5336F003BE15F /* ContentView.swift in Sources */,
+				0D555AA12AF53DE8003BE15F /* State.swift in Sources */,
 				0D555A7C2AF5336F003BE15F /* SharedListsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

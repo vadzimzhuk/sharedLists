@@ -8,17 +8,36 @@
 import SwiftUI
 
 struct ContentView: View {
+
+    @EnvironmentObject var store: AppStateStore
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        if store.state.isAuthorized {
+            VStack {
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                Text("Hello, world!")
+            }
+            .padding()
+        } else {
+            VStack {
+                Image(systemName: "person")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                Text("Please, log in.")
+            }
+            .padding()
         }
-        .padding()
+
     }
 }
 
 #Preview {
+
     ContentView()
+        .environmentObject(AppStateStore(
+            initial: AppState(),
+            reducer: appStateReducer,
+            middlewares: []))
 }
