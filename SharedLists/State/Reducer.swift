@@ -15,9 +15,10 @@ let appStateReducer: Reducer<AppState, AppAction> = { state, action in
     switch action {
         case .launch:
             break
-        case .authorize:
-            // TODO: - implement
-            break
+        case .authorize(let user):
+            mutatingState.currentUser = user
+        case .logout:
+            mutatingState.currentUser = nil
     }
 
     return mutatingState

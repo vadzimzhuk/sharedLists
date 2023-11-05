@@ -8,5 +8,5 @@
 import Foundation
 
 struct AppState {
-    var isAuthorized: Bool = false
+    var currentUser: User?
 }

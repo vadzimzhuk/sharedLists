@@ -9,5 +9,6 @@ import Foundation
 
 enum AppAction {
     case launch
-    case authorize
+    case authorize(User)
+    case logout
 }

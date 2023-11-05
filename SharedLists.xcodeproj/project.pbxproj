@@ -25,6 +25,15 @@
 		0D555AA32AF53EA7003BE15F /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D555AA22AF53EA7003BE15F /* AppAction.swift */; };
 		0D555AA52AF53F52003BE15F /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D555AA42AF53F52003BE15F /* Reducer.swift */; };
 		0D555AA72AF53FAB003BE15F /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D555AA62AF53FAB003BE15F /* Middleware.swift */; };
+		0D555AAA2AF5907F003BE15F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0D555AA92AF5907F003BE15F /* FirebaseAuth */; };
+		0D555AAD2AF68566003BE15F /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D555AAC2AF68566003BE15F /* DIContainer.swift */; };
+		0D555AB02AF685B3003BE15F /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 0D555AAF2AF685B3003BE15F /* Swinject */; };
+		0D555AB22AF685B3003BE15F /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0D555AB12AF685B3003BE15F /* Swinject-Dynamic */; };
+		0D555AB52AF68B4F003BE15F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D555AB42AF68B4F003BE15F /* LoginView.swift */; };
+		0D555AB72AF6AFBF003BE15F /* CredentialsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D555AB62AF6AFBF003BE15F /* CredentialsView.swift */; };
+		0DB2C2122AF79B1800460200 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2C2112AF79B1700460200 /* SignupView.swift */; };
+		0DB2C2142AF79F7600460200 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2C2132AF79F7600460200 /* AuthorizationView.swift */; };
+		0DB2C2182AF7A53800460200 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2C2172AF7A53800460200 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +51,12 @@
 		0D555AA22AF53EA7003BE15F /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
 		0D555AA42AF53F52003BE15F /* Reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
 		0D555AA62AF53FAB003BE15F /* Middleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middleware.swift; sourceTree = "<group>"; };
+		0D555AAC2AF68566003BE15F /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		0D555AB42AF68B4F003BE15F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		0D555AB62AF6AFBF003BE15F /* CredentialsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsView.swift; sourceTree = "<group>"; };
+		0DB2C2112AF79B1700460200 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		0DB2C2132AF79F7600460200 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
+		0DB2C2172AF7A53800460200 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +65,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D555A982AF53ACA003BE15F /* FirebaseAnalyticsSwift in Frameworks */,
+				0D555AB22AF685B3003BE15F /* Swinject-Dynamic in Frameworks */,
+				0D555AAA2AF5907F003BE15F /* FirebaseAuth in Frameworks */,
+				0D555AB02AF685B3003BE15F /* Swinject in Frameworks */,
 				0D555A942AF53ACA003BE15F /* FirebaseAnalytics in Frameworks */,
 				0D555A962AF53ACA003BE15F /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				0D555A9C2AF53ACA003BE15F /* FirebaseAppCheck in Frameworks */,
@@ -65,6 +83,7 @@
 			children = (
 				0D555A7A2AF5336F003BE15F /* SharedLists */,
 				0D555A792AF5336F003BE15F /* Products */,
+				0D555AA82AF5907F003BE15F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,11 +98,13 @@
 		0D555A7A2AF5336F003BE15F /* SharedLists */ = {
 			isa = PBXGroup;
 			children = (
+				0DB2C2162AF7A52600460200 /* Model */,
+				0D555AAB2AF6853A003BE15F /* Dependencies */,
 				0D555A9D2AF53D86003BE15F /* State */,
 				0D555A902AF53A55003BE15F /* GoogleService-Info.plist */,
 				0D555A892AF5376D003BE15F /* Services */,
 				0D555A7B2AF5336F003BE15F /* SharedListsApp.swift */,
-				0D555A7D2AF5336F003BE15F /* ContentView.swift */,
+				0D555AB32AF68AF4003BE15F /* UserInterface */,
 				0D555A7F2AF53371003BE15F /* Assets.xcassets */,
 				0D555A812AF53371003BE15F /* Preview Content */,
 			);
@@ -120,6 +141,49 @@
 			path = State;
 			sourceTree = "<group>";
 		};
+		0D555AA82AF5907F003BE15F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0D555AAB2AF6853A003BE15F /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				0D555AAC2AF68566003BE15F /* DIContainer.swift */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		0D555AB32AF68AF4003BE15F /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				0D555A7D2AF5336F003BE15F /* ContentView.swift */,
+				0DB2C2152AF79F8400460200 /* Authorization */,
+			);
+			path = UserInterface;
+			sourceTree = "<group>";
+		};
+		0DB2C2152AF79F8400460200 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				0DB2C2132AF79F7600460200 /* AuthorizationView.swift */,
+				0D555AB42AF68B4F003BE15F /* LoginView.swift */,
+				0DB2C2112AF79B1700460200 /* SignupView.swift */,
+				0D555AB62AF6AFBF003BE15F /* CredentialsView.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		0DB2C2162AF7A52600460200 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0DB2C2172AF7A53800460200 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -142,6 +206,9 @@
 				0D555A972AF53ACA003BE15F /* FirebaseAnalyticsSwift */,
 				0D555A992AF53ACA003BE15F /* FirebaseAnalyticsWithoutAdIdSupport */,
 				0D555A9B2AF53ACA003BE15F /* FirebaseAppCheck */,
+				0D555AA92AF5907F003BE15F /* FirebaseAuth */,
+				0D555AAF2AF685B3003BE15F /* Swinject */,
+				0D555AB12AF685B3003BE15F /* Swinject-Dynamic */,
 			);
 			productName = SharedLists;
 			productReference = 0D555A782AF5336F003BE15F /* SharedLists.app */;
@@ -173,6 +240,7 @@
 			mainGroup = 0D555A6F2AF5336F003BE15F;
 			packageReferences = (
 				0D555A922AF53ACA003BE15F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				0D555AAE2AF685B3003BE15F /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = 0D555A792AF5336F003BE15F /* Products */;
 			projectDirPath = "";
@@ -202,10 +270,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D555A8F2AF537AB003BE15F /* NetworkService.swift in Sources */,
+				0D555AAD2AF68566003BE15F /* DIContainer.swift in Sources */,
 				0D555AA32AF53EA7003BE15F /* AppAction.swift in Sources */,
 				0D555A8B2AF5378A003BE15F /* AuthorizationService.swift in Sources */,
+				0DB2C2182AF7A53800460200 /* User.swift in Sources */,
+				0DB2C2122AF79B1800460200 /* SignupView.swift in Sources */,
 				0D555A8D2AF53796003BE15F /* StorageService.swift in Sources */,
+				0D555AB72AF6AFBF003BE15F /* CredentialsView.swift in Sources */,
 				0D555A9F2AF53D96003BE15F /* Store.swift in Sources */,
+				0DB2C2142AF79F7600460200 /* AuthorizationView.swift in Sources */,
+				0D555AB52AF68B4F003BE15F /* LoginView.swift in Sources */,
 				0D555AA72AF53FAB003BE15F /* Middleware.swift in Sources */,
 				0D555AA52AF53F52003BE15F /* Reducer.swift in Sources */,
 				0D555A7E2AF5336F003BE15F /* ContentView.swift in Sources */,
@@ -426,6 +500,14 @@
 				minimumVersion = 10.17.0;
 			};
 		};
+		0D555AAE2AF685B3003BE15F /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -453,6 +535,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0D555A922AF53ACA003BE15F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAppCheck;
+		};
+		0D555AA92AF5907F003BE15F /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0D555A922AF53ACA003BE15F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		0D555AAF2AF685B3003BE15F /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0D555AAE2AF685B3003BE15F /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		0D555AB12AF685B3003BE15F /* Swinject-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0D555AAE2AF685B3003BE15F /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = "Swinject-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

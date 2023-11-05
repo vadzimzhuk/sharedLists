@@ -20,14 +20,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct SharedListsApp: App {
 
-    let store = AppStateStore(
-      initial: AppState(),
-      reducer: appStateReducer,
-      middlewares: [
-      ])
+    private let store: AppStateStore
 
     init() {
-      store.dispatch(.launch)
+        DIContainer.shared.registerDependencies()
+        store = DIContainer.shared.resolve(AppStateStore.self)!
+        store.dispatch(.launch)
     }
 
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
