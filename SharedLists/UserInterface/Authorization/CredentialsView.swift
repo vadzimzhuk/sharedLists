@@ -37,14 +37,18 @@ struct CredentialsView: View {
             HStack {
                 Spacer()
                 Button(action: {
+                    isLoading = true
+                    
                     Task {
-                        isLoading = true
                         do {
                             try await buttonAction(login, password)
                         } catch {
                             print(error)
                         }
-                        isLoading = false
+
+                        await MainActor.run {
+                            isLoading = false
+                        }
 
                     }
                 }, label: {

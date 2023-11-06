@@ -38,7 +38,8 @@ final class DIContainer: DIContainerProtocol {
 extension DIContainer {
 
     func registerDependencies() {
-        register(AppStateStore.self) { _ in 
+
+        register(AppStateStore.self) { resolver in
             AppStateStore(initial: AppState(),
                           reducer: appStateReducer,
                           middlewares: [
@@ -46,14 +47,16 @@ extension DIContainer {
         }
         .inObjectScope(.container)
 
+        register(FirestoreService.self) { resolver in
+            let appStateStore = resolver.resolve(AppStateStore.self)!
+            return FirestoreService(appStateStore: appStateStore)
+        }
+        .inObjectScope(.container)
+
+
         register(AuthorizationService.self) { resolver in
             let store = resolver.resolve(AppStateStore.self)!
             return FirebaseAuthorizationService(appStateStore: store) }
             .inObjectScope(.container)
-
-//        register(EntriesProviderService.self) { resolver in
-//            EntriesManager(storageService: resolver.resolve(StorageService.self)!)
-//        }
-//        .inObjectScope(.container)
     }
 }

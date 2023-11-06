@@ -8,30 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var storage: FirestoreService = DIContainer.shared.resolve(FirestoreService.self)!
 
     @EnvironmentObject var store: AppStateStore
-    
+
     var authorizationService: AuthorizationService = {
         DIContainer.shared.resolve(AuthorizationService.self)!
     }()
 
     var body: some View {
         if let _ = store.state.currentUser {
-            VStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text("Hello, world!")
+            NavigationStack {
+                VStack {
 
-                Button(action: {
-                    Task {
-                        try? await authorizationService.signOut()
-                    }
-                }, label: {
-                    Text("Sign out")
-                })
+                    ListEntriesView(listEntries: $storage.listEntries)
+                        .environmentObject(storage)
+
+                    Button(action: {
+                        Task {
+                            try? await authorizationService.signOut()
+                        }
+                    }, label: {
+                        Text("Sign out")
+                    })
+                }
+                .padding()
+                .navigationTitle("SharedLists")
             }
-            .padding()
+            .navigationBarTitleDisplayMode(.large)
         } else {
             AuthorizationView()
         }
