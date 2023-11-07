@@ -13,7 +13,7 @@ struct ListDetailsView: View {
         DIContainer.shared.resolve(FirestoreService.self)!
     }()
 
-    @Binding var listEntry: ListEntry
+    @Binding var listEntry: ListEntryProtocol
 
     @State var itemUnderEdit: String = ""
 
@@ -53,7 +53,7 @@ struct ListDetailsView: View {
 }
 
 #Preview {
-    ListDetailsView(listEntry: .constant(ListEntry(title: "Shopping", text: "Shopping list", numberOfItems: 1, items: [
+    ListDetailsView(listEntry: .constant(ListEntry(title: "Shopping", text: "Shopping list", items: [
         ListItem(text: "Milk", isCompleted: false)
     ])))
 }

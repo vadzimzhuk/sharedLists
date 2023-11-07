@@ -41,6 +41,7 @@
 		0DB2C2242AF8DDD800460200 /* ListDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2C2232AF8DDD800460200 /* ListDetailsView.swift */; };
 		0DB2C2262AF8DE6E00460200 /* ListItemPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2C2252AF8DE6E00460200 /* ListItemPreviewView.swift */; };
 		0DB2C22D2AF98BF000460200 /* WrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2C22C2AF98BF000460200 /* WrapperView.swift */; };
+		0DB2C2302AFA5A3E00460200 /* AddExternalListPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2C22F2AFA5A3E00460200 /* AddExternalListPopoverView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -84,6 +85,7 @@
 		0DB2C2232AF8DDD800460200 /* ListDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailsView.swift; sourceTree = "<group>"; };
 		0DB2C2252AF8DE6E00460200 /* ListItemPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemPreviewView.swift; sourceTree = "<group>"; };
 		0DB2C22C2AF98BF000460200 /* WrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperView.swift; sourceTree = "<group>"; };
+		0DB2C22F2AFA5A3E00460200 /* AddExternalListPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExternalListPopoverView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +191,7 @@
 				0DB2C22B2AF98BD500460200 /* Common */,
 				0D555A7D2AF5336F003BE15F /* ContentView.swift */,
 				0DB2C21B2AF80C8F00460200 /* ListEntriesView.swift */,
-				0DB2C2212AF824F500460200 /* NewListPopoverView.swift */,
+				0DB2C22E2AFA5A1A00460200 /* Popovers */,
 				0DB2C2252AF8DE6E00460200 /* ListItemPreviewView.swift */,
 				0DB2C21D2AF80D6F00460200 /* ListEntryPreviewView.swift */,
 				0DB2C2152AF79F8400460200 /* Authorization */,
@@ -224,6 +226,15 @@
 				0DB2C22C2AF98BF000460200 /* WrapperView.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		0DB2C22E2AFA5A1A00460200 /* Popovers */ = {
+			isa = PBXGroup;
+			children = (
+				0DB2C2212AF824F500460200 /* NewListPopoverView.swift */,
+				0DB2C22F2AFA5A3E00460200 /* AddExternalListPopoverView.swift */,
+			);
+			path = Popovers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +341,7 @@
 				0D555AA72AF53FAB003BE15F /* Middleware.swift in Sources */,
 				0DB2C22D2AF98BF000460200 /* WrapperView.swift in Sources */,
 				0DB2C2242AF8DDD800460200 /* ListDetailsView.swift in Sources */,
+				0DB2C2302AFA5A3E00460200 /* AddExternalListPopoverView.swift in Sources */,
 				0D555AA52AF53F52003BE15F /* Reducer.swift in Sources */,
 				0D555A7E2AF5336F003BE15F /* ContentView.swift in Sources */,
 				0DB2C21C2AF80C8F00460200 /* ListEntriesView.swift in Sources */,

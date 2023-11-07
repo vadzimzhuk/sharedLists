@@ -27,7 +27,7 @@ struct NewListPopoverView: View {
         }
 
             Button("Create", action: {
-                let list = ListEntry(id: "", title: listTitle, text: "", numberOfItems: 0, items: [])
+                let list = ListEntry(id: "", title: listTitle, text: "", items: [])
                 storage.create(list: list)
                 isPresented = false
             })

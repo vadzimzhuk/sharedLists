@@ -11,9 +11,10 @@ struct ListEntriesView: View {
    
     @EnvironmentObject var storage: FirestoreService
 
-    @Binding var listEntries: [ListEntry]
+    @Binding var listEntries: [ListEntryProtocol]
 
-    @State var newListPopOverShown: Bool = false
+    @State var newListPopoverShown: Bool = false
+    @State var addExternalListPopoverShown: Bool = false
     @State var editingListId: String?
 
     @FocusState var listTitleFocus
@@ -29,9 +30,11 @@ struct ListEntriesView: View {
                             .focused($listTitleFocus)
                             .onSubmit {
                                 editingListId = nil
+                                storage.update(list: listEntry.wrappedValue)
                             }
                     } else {
                         Text(listEntry.title.wrappedValue)
+                            .foregroundStyle(listEntry.wrappedValue is ExternalListEntry ? .red : .black)
                         Spacer()
                         Text(" \(listEntry.wrappedValue.numberOfItems)")
                     }
@@ -50,7 +53,7 @@ struct ListEntriesView: View {
             }
             .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                 Button(role: .destructive) {
-                    guard let listId = listEntry.id else { return }
+                    guard let listId = listEntry.wrappedValue.id else { return }
                     storage.delete(listId: listId)
                 } label: {
                     HStack {
@@ -63,15 +66,21 @@ struct ListEntriesView: View {
         .listStyle(.plain)
         .toolbar(content: {
             Button(action: {
-                newListPopOverShown.toggle()
+                newListPopoverShown.toggle()
             }, label: {
                 Image(systemName: "plus")
             })
+            Button(action: {
+                addExternalListPopoverShown.toggle()
+            }, label: {
+                Image(systemName: "square.and.arrow.down")
+            })
         })
-        .createNewListPopover("New list", isPresented: $newListPopOverShown)
+        .createNewListPopover("New list", isPresented: $newListPopoverShown)
+        .addExternalListPopover("Add external list", isPresented: $addExternalListPopoverShown)
     }
 }
 
 #Preview {
-    ListEntriesView(listEntries: .constant([ListEntry(id: UUID().uuidString, title: "List tiltle", text: "List body text", numberOfItems: 0, items: [])]))
+    ListEntriesView(listEntries: .constant([ListEntry(id: UUID().uuidString, title: "List tiltle", text: "List body text", items: [])]))
 }
