@@ -15,11 +15,13 @@ struct ListDetailsView: View {
 
     @Binding var listEntry: ListEntry
 
+    @State var itemUnderEdit: String = ""
+
     @FocusState var newItemFocus
 
     var body: some View {
         List($listEntry.items, id: \.id) { listItem in
-            ListItemPreviewView(model: .init(listId: listEntry.id ?? "", listItem: listItem.wrappedValue), listItem: listItem)
+            ListItemPreviewView(model: .init(listId: listEntry.id ?? "", listItem: listItem.wrappedValue), listItem: listItem, itemUnderEdit: $itemUnderEdit)
                 .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                     Button(role: .destructive) {
                         storage.delete(item: listItem.wrappedValue, from: listEntry)
@@ -42,7 +44,7 @@ struct ListDetailsView: View {
 
             Button(action: {
                 let listItem = ListItem(id: UUID().uuidString, text: "New item", isCompleted: false)
-                DIContainer.shared.resolve(FirestoreService.self)!.add(item: listItem, to: listEntry)
+                storage.add(item: listItem, to: listEntry)
             }, label: {
                 Image(systemName: "plus")
             })

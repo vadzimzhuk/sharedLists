@@ -40,6 +40,7 @@
 		0DB2C2222AF824F500460200 /* NewListPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2C2212AF824F500460200 /* NewListPopoverView.swift */; };
 		0DB2C2242AF8DDD800460200 /* ListDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2C2232AF8DDD800460200 /* ListDetailsView.swift */; };
 		0DB2C2262AF8DE6E00460200 /* ListItemPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2C2252AF8DE6E00460200 /* ListItemPreviewView.swift */; };
+		0DB2C22D2AF98BF000460200 /* WrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2C22C2AF98BF000460200 /* WrapperView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -82,6 +83,7 @@
 		0DB2C2212AF824F500460200 /* NewListPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListPopoverView.swift; sourceTree = "<group>"; };
 		0DB2C2232AF8DDD800460200 /* ListDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailsView.swift; sourceTree = "<group>"; };
 		0DB2C2252AF8DE6E00460200 /* ListItemPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemPreviewView.swift; sourceTree = "<group>"; };
+		0DB2C22C2AF98BF000460200 /* WrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 		0D555AB32AF68AF4003BE15F /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				0DB2C22B2AF98BD500460200 /* Common */,
 				0D555A7D2AF5336F003BE15F /* ContentView.swift */,
 				0DB2C21B2AF80C8F00460200 /* ListEntriesView.swift */,
 				0DB2C2212AF824F500460200 /* NewListPopoverView.swift */,
@@ -213,6 +216,14 @@
 				0DB2C2192AF8082A00460200 /* ListEntry.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0DB2C22B2AF98BD500460200 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				0DB2C22C2AF98BF000460200 /* WrapperView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,6 +328,7 @@
 				0D555AB52AF68B4F003BE15F /* LoginView.swift in Sources */,
 				0DB2C21E2AF80D6F00460200 /* ListEntryPreviewView.swift in Sources */,
 				0D555AA72AF53FAB003BE15F /* Middleware.swift in Sources */,
+				0DB2C22D2AF98BF000460200 /* WrapperView.swift in Sources */,
 				0DB2C2242AF8DDD800460200 /* ListDetailsView.swift in Sources */,
 				0D555AA52AF53F52003BE15F /* Reducer.swift in Sources */,
 				0D555A7E2AF5336F003BE15F /* ContentView.swift in Sources */,

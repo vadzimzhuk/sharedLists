@@ -26,18 +26,39 @@ struct ListItemPreviewView: View {
     @ObservedObject var model: Model
 
     @Binding var listItem: ListItem
+    @Binding var itemUnderEdit: String
+
+    @FocusState var textFieldFocus: Bool
+
+    private var underEdit: Bool { itemUnderEdit == listItem.id }
 
     var body: some View {
         HStack {
-            TextField("New item", text: $listItem.text)
-
+            if underEdit {
+                TextField("New item", text: $listItem.text)
+                .focused($textFieldFocus)
+                .foregroundStyle(listItem.isCompleted ? .gray.opacity(0.5) : .black)
+            } else {
+                Text(listItem.text)
+                    .foregroundStyle(listItem.isCompleted ? .gray.opacity(0.5) : .black)
+                    .onTapGesture {
+                        guard let id = listItem.id else { return }
+                        itemUnderEdit = id
+                        textFieldFocus = true
+                    }
+            }
 
             Spacer()
 
             Button {
                 listItem.isCompleted.toggle()
+                textFieldFocus = false
+                itemUnderEdit = ""
             } label: {
-                Image(systemName: listItem.isCompleted ? "xmark.square" : "square")
+                WrapperView {
+                    Image(systemName: listItem.isCompleted ? "xmark.square" : "square")
+                        .padding(5)
+                }
             }
         }
         .onChange(of: listItem) { oldValue, newValue in
@@ -46,6 +67,8 @@ struct ListItemPreviewView: View {
     }
 }
 
-//#Preview {
-//    ListItemPreviewView(listItem: .constant(ListItem(text: "Milk", isCompleted: false)))
-//}
+private var listItem = ListItem(text: "Milk", isCompleted: false)
+
+#Preview {
+    ListItemPreviewView(model: .init(listId: "", listItem: listItem), listItem: .constant(listItem), itemUnderEdit: .constant(""))
+}

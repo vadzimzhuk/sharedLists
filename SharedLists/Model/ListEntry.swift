@@ -16,12 +16,12 @@ struct ListEntry: Identifiable, Codable {
     var items: [ListItem]
 }
 
+extension ListEntry: Equatable {}
+
 struct ListItem: Identifiable, Codable {
     @DocumentID var id: String?
     var text: String
     var isCompleted: Bool
 }
 
-extension ListItem: Equatable {
-    
-}
+extension ListItem: Equatable {}
