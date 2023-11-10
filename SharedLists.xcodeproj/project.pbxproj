@@ -58,6 +58,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0D1857CC2AFE306100783D8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0D555A782AF5336F003BE15F /* SharedLists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharedLists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D555A7B2AF5336F003BE15F /* SharedListsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedListsApp.swift; sourceTree = "<group>"; };
 		0D555A7D2AF5336F003BE15F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -127,6 +128,7 @@
 		0D555A7A2AF5336F003BE15F /* SharedLists */ = {
 			isa = PBXGroup;
 			children = (
+				0D1857CC2AFE306100783D8A /* Info.plist */,
 				0DB2C2162AF7A52600460200 /* Model */,
 				0D555AAB2AF6853A003BE15F /* Dependencies */,
 				0D555A9D2AF53D86003BE15F /* State */,
@@ -484,6 +486,7 @@
 				DEVELOPMENT_TEAM = L2HG8KUPMF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SharedLists/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -515,6 +518,7 @@
 				DEVELOPMENT_TEAM = L2HG8KUPMF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SharedLists/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
