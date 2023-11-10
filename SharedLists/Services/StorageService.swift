@@ -177,6 +177,7 @@ class FirestoreService: StorageService, ObservableObject {
         let externalListRef = db.collection("users").document(userId).collection("listEntries").document(id)
         if let externalList = try? await externalListRef.getDocument(as: ListEntry.self) {
             let list = ExternalListEntry(path: externalListRef, list: externalList)
+            // TODO: - check for duplicates
             create(list: list)
         } else {
             assertionFailure()
