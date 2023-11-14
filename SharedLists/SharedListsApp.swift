@@ -43,6 +43,7 @@ struct SharedListsApp: App {
                             await storage.addExternalList(with: importListData.listId, of: importListData.userId)
                         }
                     }
+                    Button("Cancel", role: .cancel, action: {})
                 } message: {
                     Text("Do you really want to add shared list")
                 }
@@ -61,11 +62,13 @@ extension SharedListsApp {
         let actionData = parseData(from: url)
         // check if the user isnt the current one
         importListData = (actionData.userId, actionData.listId)
+
+        guard actionData.userId != store.state.currentUser?.id else { return } // TODO: - open own list
+        
         importListAlertShown = true
     }
 
     private func parseData(from url: URL) -> (command: RemoteAction, userId: String, listId: String) {
-        let pathComponents = url.pathComponents
         let components = NSURLComponents(url: url, resolvingAgainstBaseURL: false)
         let query = components?.queryItems
 

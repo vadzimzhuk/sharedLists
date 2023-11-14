@@ -13,9 +13,12 @@ struct ListDetailsView: View {
         DIContainer.shared.resolve(FirestoreService.self)!
     }()
 
+    @EnvironmentObject var store: AppStateStore
+
     @Binding var listEntry: ListEntryProtocol
 
     @State var itemUnderEdit: String = ""
+    @State private var isSharePresented: Bool = false
 
     @FocusState var newItemFocus
 
@@ -33,11 +36,17 @@ struct ListDetailsView: View {
                     .tint(.red)
                 }
         }
+
+        .sheet(isPresented: $isSharePresented, onDismiss: {
+//            print("Dismiss")
+        }, content: {
+            ActivityViewController(activityItems: ["sharedlists://share?userid=\(store.state.currentUser?.id ?? "")&listid=\(listEntry.id ?? "")"])
+        })
         .navigationTitle(listEntry.title)
         .toolbar(content: {
 
             Button(action: {
-
+                isSharePresented = true
             }, label: {
                 Image(systemName: "square.and.arrow.up")
             })
@@ -56,4 +65,21 @@ struct ListDetailsView: View {
     ListDetailsView(listEntry: .constant(ListEntry(title: "Shopping", text: "Shopping list", items: [
         ListItem(text: "Milk", isCompleted: false)
     ])))
+}
+
+import UIKit
+//import SwiftUI
+
+struct ActivityViewController: UIViewControllerRepresentable {
+
+    var activityItems: [Any]
+    var applicationActivities: [UIActivity]? = nil
+
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ActivityViewController>) -> UIActivityViewController {
+        let controller = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
+        return controller
+    }
+
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: UIViewControllerRepresentableContext<ActivityViewController>) {}
+
 }
