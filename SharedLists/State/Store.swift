@@ -53,7 +53,9 @@ class Store<State, Action>: ObservableObject {
         }
 
             // Finally set the state to the new state
-        state = newState
+        DispatchQueue.main.async { [weak self] in
+            self?.state = newState
+        }
     }
 
     func register(middleware: @escaping Middleware<State, Action>) {

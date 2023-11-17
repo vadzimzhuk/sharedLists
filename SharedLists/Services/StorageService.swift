@@ -29,7 +29,7 @@ class FirestoreService: StorageService, ObservableObject {
     private var externalListsListeners: [ListenerRegistration] = []
 
     private var userId: String {
-        guard let userId = store.state.currentUser?.id else { fatalError() }
+        guard let userId = store.state.currentUser?.id else { return store.state.currentUser?.id ?? ""}
 
         return userId
     }

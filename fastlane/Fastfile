@@ -1,0 +1,31 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Generate new localized screenshots"
+  lane :screenshots do
+	ENV["FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT"] = "120"
+    capture_screenshots(project: "SharedLists.xcodeproj", scheme: "SharedListsUITests")
+  end
+end
+
+platform :ios do
+  desc "Frame new screenshots"
+  lane :frames do
+	frame_screenshots(use_platform: "IOS")
+  end
+end

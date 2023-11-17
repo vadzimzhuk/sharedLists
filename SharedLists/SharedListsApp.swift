@@ -16,13 +16,22 @@ struct SharedListsApp: App {
 
     init() {
         DIContainer.shared.registerDependencies()
+
         store = DIContainer.shared.resolve(AppStateStore.self)!
-        store.dispatch(.launch)
+
+        if isRunningUITests {
+            Task {
+                let appStateStore = DIContainer.shared.resolve(AppStateStore.self)!
+                appStateStore.dispatch(.authorize(User(id: "userid")))
+            }
+        } else {
+            store.dispatch(.launch)
+        }
 
         FirebaseApp.configure()
 
         storage = DIContainer.shared.resolve(FirestoreService.self)!
-        store.register(middleware: authorizeMiddleware(storage: storage))
+        store.register(middleware: authorizeMiddleware(storage: storage, authorizationService: DIContainer.shared.resolve(AuthorizationService.self)!))
     }
 
     @State var importListAlertShown: Bool = false
@@ -79,4 +88,12 @@ extension SharedListsApp {
 
         return (command: command, userId: userId, listId: listId)
     }
+}
+
+var isRunningUITests: Bool {
+    return ProcessInfo
+        .processInfo
+        .environment["RUNNING_UI_TESTS"]
+        .map { $0 == "YES" }
+        .or(false)
 }

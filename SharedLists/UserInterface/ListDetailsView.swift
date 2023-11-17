@@ -38,7 +38,6 @@ struct ListDetailsView: View {
         }
 
         .sheet(isPresented: $isSharePresented, onDismiss: {
-//            print("Dismiss")
         }, content: {
             ActivityViewController(activityItems: ["sharedlists://share?userid=\(store.state.currentUser?.id ?? "")&listid=\(listEntry.id ?? "")"])
         })

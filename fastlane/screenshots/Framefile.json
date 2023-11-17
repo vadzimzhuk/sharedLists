@@ -1,0 +1,34 @@
+{
+  "default": {
+    "frame": "GOLD",
+    "keyword": {
+    },
+    "title": {
+      "color": "#545454"
+    },
+    "background": "./background.jpg",
+    "padding": 50
+  },
+
+
+  "data": [
+    {
+      "filter": "Create Journal",
+      "keyword": {
+        "color": "#d21559"
+      }
+    },
+    {
+      "filter": "JournalDetails",
+      "keyword": {
+        "color": "#feb909"
+      }
+    },
+    {
+      "filter": "JournalList",
+      "keyword": {
+        "color": "#aa4dbc"
+      }
+    }
+  ]
+}

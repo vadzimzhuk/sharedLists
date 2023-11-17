@@ -79,6 +79,21 @@
                   endingLineNumber = "218"
                   offsetFromSymbolStart = "1764">
                </Location>
+               <Location
+                  uuid = "2BBFFA37-CBB4-4BC7-A03F-C6E694286304 - 6e5ec8efdd0340fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SharedLists.FirestoreService.update(list: SharedLists.ListEntryProtocol) -&gt; ()"
+                  moduleName = "SharedLists"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/approach/Development/Projects/SharedLists/SharedLists/SharedLists/Services/StorageService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "218"
+                  endingLineNumber = "218"
+                  offsetFromSymbolStart = "2205">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -156,6 +171,21 @@
                   startingLineNumber = "210"
                   endingLineNumber = "210"
                   offsetFromSymbolStart = "232">
+               </Location>
+               <Location
+                  uuid = "C73DE826-45BA-48BC-8605-052884C9D0FB - 6e5ec8efdd034103"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SharedLists.FirestoreService.update(list: SharedLists.ListEntryProtocol) -&gt; ()"
+                  moduleName = "SharedLists"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/approach/Development/Projects/SharedLists/SharedLists/SharedLists/Services/StorageService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "210"
+                  endingLineNumber = "210"
+                  offsetFromSymbolStart = "173">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -265,6 +295,36 @@
                   endingLineNumber = "181"
                   offsetFromSymbolStart = "328">
                </Location>
+               <Location
+                  uuid = "1DFF4041-911B-45F9-BF32-4DC97CE88A8F - c1a029b8a1835e1b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for SharedLists.FirestoreService.addExternalList(with: Swift.String, of: Swift.String) async -&gt; ()"
+                  moduleName = "SharedLists"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/approach/Development/Projects/SharedLists/SharedLists/SharedLists/Services/StorageService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "181"
+                  endingLineNumber = "181"
+                  offsetFromSymbolStart = "462">
+               </Location>
+               <Location
+                  uuid = "1DFF4041-911B-45F9-BF32-4DC97CE88A8F - ece42c3bb7a83dd8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for SharedLists.FirestoreService.addExternalList(with: Swift.String, of: Swift.String) async -&gt; ()"
+                  moduleName = "SharedLists"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/approach/Development/Projects/SharedLists/SharedLists/SharedLists/Services/StorageService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "181"
+                  endingLineNumber = "181"
+                  offsetFromSymbolStart = "385">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -312,6 +372,21 @@
                   startingLineNumber = "200"
                   endingLineNumber = "200"
                   offsetFromSymbolStart = "1636">
+               </Location>
+               <Location
+                  uuid = "9C3DA306-91D5-4008-8A96-C80EFCA41D7A - dae07803f0e4d3bc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SharedLists.FirestoreService.create(list: SharedLists.ListEntryProtocol) -&gt; ()"
+                  moduleName = "SharedLists"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/approach/Development/Projects/SharedLists/SharedLists/SharedLists/Services/StorageService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "200"
+                  endingLineNumber = "200"
+                  offsetFromSymbolStart = "2340">
                </Location>
             </Locations>
          </BreakpointContent>

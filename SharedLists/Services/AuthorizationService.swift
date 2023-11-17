@@ -22,16 +22,21 @@ actor FirebaseAuthorizationService: AuthorizationService {
     static let unexpectedBehaviourError: Error = AppError.unexpectedBehaviour(class: FirebaseAuthorizationService.self)
     let appStateStore: AppStateStore
     
-    private var authStateListener: AuthStateDidChangeListenerHandle
+    private var authStateListener: AuthStateDidChangeListenerHandle?
 
     init(appStateStore: AppStateStore) {
         self.appStateStore = appStateStore
-        authStateListener = Auth.auth().addStateDidChangeListener { auth, user in
-            if let firebaseUser = auth.currentUser {
-                let user = User(id: firebaseUser.uid)
-                appStateStore.dispatch(.authorize(user))
-            } else {
-                appStateStore.dispatch(.logout)
+
+        if isRunningUITests {
+            try? Auth.auth().signOut()
+        } else {
+            authStateListener = Auth.auth().addStateDidChangeListener { auth, user in
+                if let firebaseUser = auth.currentUser {
+                    let user = User(id: firebaseUser.uid)
+                    appStateStore.dispatch(.authorize(user))
+                } else {
+                    appStateStore.dispatch(.logout)
+                }
             }
         }
     }
