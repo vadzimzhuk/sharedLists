@@ -212,6 +212,24 @@
 			path = SnapshotHelper;
 			sourceTree = "<group>";
 		};
+		0D2C08CE2B0A2C6C00A9E24D /* ListDetails */ = {
+			isa = PBXGroup;
+			children = (
+				0DB2C2252AF8DE6E00460200 /* ListItemPreviewView.swift */,
+				0DB2C2232AF8DDD800460200 /* ListDetailsView.swift */,
+			);
+			path = ListDetails;
+			sourceTree = "<group>";
+		};
+		0D2C08CF2B0A2C8100A9E24D /* ListsList */ = {
+			isa = PBXGroup;
+			children = (
+				0DB2C21B2AF80C8F00460200 /* ListEntriesView.swift */,
+				0DB2C21D2AF80D6F00460200 /* ListEntryPreviewView.swift */,
+			);
+			path = ListsList;
+			sourceTree = "<group>";
+		};
 		0D555A6F2AF5336F003BE15F = {
 			isa = PBXGroup;
 			children = (
@@ -243,7 +261,7 @@
 				0D555A892AF5376D003BE15F /* Services */,
 				0D555A7B2AF5336F003BE15F /* SharedListsApp.swift */,
 				0D1857F42B03AD2F00783D8A /* AnyOptional.swift */,
-				0D555AB32AF68AF4003BE15F /* UserInterface */,
+				0D555AB32AF68AF4003BE15F /* PresentationLayer */,
 				0D555A7F2AF53371003BE15F /* Assets.xcassets */,
 				0D1858582B07A0C300783D8A /* LaunchScreen.storyboard */,
 				0D555A812AF53371003BE15F /* Preview Content */,
@@ -296,19 +314,16 @@
 			path = Dependencies;
 			sourceTree = "<group>";
 		};
-		0D555AB32AF68AF4003BE15F /* UserInterface */ = {
+		0D555AB32AF68AF4003BE15F /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
 				0DB2C22B2AF98BD500460200 /* Common */,
-				0D555A7D2AF5336F003BE15F /* ContentView.swift */,
-				0DB2C21B2AF80C8F00460200 /* ListEntriesView.swift */,
+				0D2C08CF2B0A2C8100A9E24D /* ListsList */,
 				0DB2C22E2AFA5A1A00460200 /* Popovers */,
-				0DB2C2252AF8DE6E00460200 /* ListItemPreviewView.swift */,
-				0DB2C21D2AF80D6F00460200 /* ListEntryPreviewView.swift */,
+				0D2C08CE2B0A2C6C00A9E24D /* ListDetails */,
 				0DB2C2152AF79F8400460200 /* Authorization */,
-				0DB2C2232AF8DDD800460200 /* ListDetailsView.swift */,
 			);
-			path = UserInterface;
+			path = PresentationLayer;
 			sourceTree = "<group>";
 		};
 		0DB2C2152AF79F8400460200 /* Authorization */ = {
@@ -334,6 +349,7 @@
 		0DB2C22B2AF98BD500460200 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0D555A7D2AF5336F003BE15F /* ContentView.swift */,
 				0DB2C22C2AF98BF000460200 /* WrapperView.swift */,
 			);
 			path = Common;
@@ -683,7 +699,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"SharedLists/Preview Content\"";
 				DEVELOPMENT_TEAM = L2HG8KUPMF;
 				ENABLE_PREVIEWS = YES;
@@ -716,7 +732,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"SharedLists/Preview Content\"";
 				DEVELOPMENT_TEAM = L2HG8KUPMF;
 				ENABLE_PREVIEWS = YES;

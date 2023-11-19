@@ -13,19 +13,13 @@
 
   "data": [
     {
-      "filter": "Create Journal",
-      "keyword": {
-        "color": "#d21559"
-      }
-    },
-    {
-      "filter": "JournalDetails",
+      "filter": "List Details",
       "keyword": {
         "color": "#feb909"
       }
     },
     {
-      "filter": "JournalList",
+      "filter": "List of lists",
       "keyword": {
         "color": "#aa4dbc"
       }

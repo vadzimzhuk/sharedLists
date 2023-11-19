@@ -14,9 +14,25 @@ protocol ListEntryProtocol {
     var text: String { get set }
     var numberOfItems: Int { get }
     var items: [ListItem] { get set }
+
+    mutating func update(items: [ListItem])
+    mutating func delete(itemId: String)
+    mutating func add(item: ListItem)
 }
 
 struct ListEntry: ListEntryProtocol, Identifiable, Codable {
+    mutating func delete(itemId: String) {
+        items.removeAll { $0.id == itemId }
+    }
+    
+    mutating func add(item: ListItem) {
+        items.append(item)
+    }
+    
+    mutating func update(items: [ListItem]) {
+        self.items = items
+    }
+    
     @DocumentID var id: String?
     var title: String
     var text: String
@@ -37,6 +53,18 @@ struct ListItem: Identifiable, Codable {
 extension ListItem: Equatable {}
 
 struct ExternalListEntry: ListEntryProtocol, Identifiable, Codable {
+    mutating func delete(itemId: String) {
+        list.items.removeAll { $0.id == itemId }
+    }
+    
+    mutating func add(item: ListItem) {
+        list.items.append(item)
+    }
+    
+    mutating func update(items: [ListItem]) {
+        self.items = items
+    }
+    
     var id: String? {
         get {
             list.id

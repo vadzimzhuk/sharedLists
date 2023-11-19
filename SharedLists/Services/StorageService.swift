@@ -9,13 +9,12 @@ import Foundation
 import FirebaseFirestore
 
 protocol StorageService {
-//    func getLists() -> [ListEntry]
     func create(list: ListEntryProtocol)
     func delete(listId: String)
     func update(list: ListEntryProtocol)
     func add(item: ListItem, to list: ListEntryProtocol)
     func edit(item: ListItem, in listId: String)
-    func delete(item: ListItem, from list: ListEntryProtocol)
+    func delete(itemId: String, from listId: String)
     func addExternalList(with id: String, of userId: String) async
 }
 
@@ -93,7 +92,6 @@ class FirestoreService: StorageService, ObservableObject {
             do {
                 var list = try document.data(as: ListEntry.self)
                 list.items = await getItems(for: list)
-//                list.numberOfItems = list.items.count
                 lists.append(list)
             } catch {
                 print(error)
@@ -136,7 +134,12 @@ class FirestoreService: StorageService, ObservableObject {
         guard let listId = list.id else { return [] }
 
         if list is ListEntry {
-            let collection = try? await userRef(userId: userId).collection("listEntries").document(listId).collection("items").getDocuments()
+            let collection = try? await userRef(userId: userId)
+                .collection("listEntries")
+                .document(listId)
+                .collection("items")
+                .order(by: "timestamp") // excludes item w/o timestamp
+                .getDocuments()
 
             let listItems = collection?.documents.compactMap {
                 try? $0.data(as: ListItem.self)
@@ -144,34 +147,21 @@ class FirestoreService: StorageService, ObservableObject {
 
             return listItems ?? []
         } else if let list = list as? ExternalListEntry {
-            let collection = try? await list.path.collection("items").getDocuments()
+            let collection = try? await list.path
+                .collection("items")
+                .order(by: "timestamp") // excludes item w/o timestamp
+                .getDocuments()
 
             let listItems = collection?.documents.compactMap {
                 try? $0.data(as: ListItem.self)
             }
 
             return listItems ?? []
-
         }
 
         assertionFailure()
         return []
     }
-
-//    func getLists() -> [ListEntry] {
-//        var outputLists: [ListEntry] = []
-//
-//        let colRef = userEntriesRef()
-//
-//        colRef.getDocuments { documents, error in
-//            guard let documents else { return }
-//
-//            let lists: [ListEntry] = documents.documents.map { ListEntry(id: $0.documentID, title: $0["title"] as! String, text: $0["text"] as! String, items: []/*$0["items"].map { ListItem(text: $0["text"] as! String, isCompleted: $0["isCompleted"] as! Bool)}*/)}
-//            outputLists = lists
-//        }
-//
-//        return outputLists
-//    }
 
     func addExternalList(with id: String, of userId: String) async {
         let externalListRef = db.collection("users").document(userId).collection("listEntries").document(id)
@@ -230,9 +220,13 @@ class FirestoreService: StorageService, ObservableObject {
 
             do {
                 try newItemRef.setData(from: item)
+                newItemRef.updateData(["timestamp" : Timestamp(date: Date())])
 
-//                let noi = list.items.count + 1
-//                userListsRef().document(listId).updateData(["numberOfItems" : noi])
+                if let index = (listEntries.firstIndex { $0.id == list.id }) {
+                    var updItem = item
+                    updItem.id = newItemRef.documentID
+                    listEntries[index].add(item: updItem)
+                }
 
             } catch {
                 print(error)
@@ -242,9 +236,14 @@ class FirestoreService: StorageService, ObservableObject {
 
                 do {
                     try newItemRef.setData(from: item)
+                    newItemRef.updateData(["timestamp" : Timestamp(date: Date())])
 
-//                    let noi = list.items.count + 1
-//                    userListsRef().document(listId).updateData(["numberOfItems" : noi])
+                    if let index = (listEntries.firstIndex { $0.id == list.id }) {
+                        
+                        var updItem = item
+                        updItem.id = newItemRef.documentID
+                        listEntries[index].add(item: updItem)
+                    }
 
                 } catch {
                     print(error)
@@ -254,21 +253,29 @@ class FirestoreService: StorageService, ObservableObject {
 
     func edit(item: ListItem, in listId: String) {
         guard let itemId = item.id else { assertionFailure(); return }
+        guard !item.text.isEmpty else { return }
 
         let itemRef = userListsRef().document(listId).collection("items").document(itemId)
 
         itemRef.updateData(["text" : item.text,
-                           "isCompleted" : item.isCompleted])
+                            "isCompleted" : item.isCompleted]) {
+            print($0)
+        }
     }
 
-    func delete(item: ListItem, from list: ListEntryProtocol) {
-        guard let listId = list.id,
-        let itemId = item.id else { assertionFailure(); return }
-
+    func delete(itemId: String, from listId: String) {
         let itemRef = userListsRef().document(listId).collection("items").document(itemId)
         itemRef.delete()
 
-//        let noi = list.items.count - 1
-//        userListsRef().document(listId).updateData(["numberOfItems" : noi])
+
+
+        if let index = (listEntries.firstIndex { $0.id == listId }) {
+            listEntries[index].delete(itemId: itemId)
+        }
+    }
+
+    func update(items: [ListItem], in list: ListEntryProtocol) {
+        guard let index = (self.listEntries.firstIndex { $0.id == list.id }) else  { return }
+        self.listEntries[index].update(items: items)
     }
 }
